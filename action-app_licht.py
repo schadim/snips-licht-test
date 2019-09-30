@@ -79,7 +79,7 @@ class Licht(object):
     # --> Sub callback function, one per intent
     def intent_1_callback(self, hermes, intent_message):
         # terminate the session first if not continue
-        hermes.publish_end_session(intent_message.session_id, "")
+        # hermes.publish_end_session(intent_message.session_id, "")
         
         # action code goes here...
         print '[Received] intent: {}'.format(intent_message.intent.intent_name)
@@ -112,7 +112,7 @@ class Licht(object):
 
     def intent_2_callback(self, hermes, intent_message):
         # terminate the session first if not continue
-        hermes.publish_end_session(intent_message.session_id, "")
+        # hermes.publish_end_session(intent_message.session_id, "")
 
         # action code goes here...
         print '[Received] intent: {}'.format(intent_message.intent.intent_name)
@@ -148,9 +148,9 @@ class Licht(object):
     # --> Master callback function, triggered everytime an intent is recognized
     def master_intent_callback(self,hermes, intent_message):
         coming_intent = intent_message.intent.intent_name
-        if coming_intent == 'Licht_Fernsehabend':
+        if coming_intent == 'schlammracer:Licht_Fernsehabend':
             self.intent_1_callback(hermes, intent_message)
-        if coming_intent == 'Licht_Essen':
+        if coming_intent == 'schlammracer:Licht_Essen':
             self.intent_2_callback(hermes, intent_message)
 
         # more callback and if condition goes here...
